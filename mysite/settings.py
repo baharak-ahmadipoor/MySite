@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webapp1.apps.Webapp1Config',
     'blog',
+    'secondapp.apps.SecondappConfig',
 ]
 
 MIDDLEWARE = [
