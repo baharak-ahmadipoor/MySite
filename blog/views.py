@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404
 
 from urllib import request
 from django.http import  HttpResponse, JsonResponse
@@ -9,10 +9,12 @@ def blog_view(request):
     context = {'posts': posts}
     return render(request, 'blog/blog-home.html',context)
 
-def blog_single(request):
-    return render(request, 'blog/blog-single.html')
+def blog_single(request,pid):
+    posts = get_object_or_404(Post, id = pid)
+    context = {'posts': posts}
+    return render(request, 'blog/blog-single.html',context)
 
-def test(request,pid):
-    post = Post.objects.get(id=pid)
-    context = {'post':post}
+def test(request,name):
+    #post = Post.objects.all()
+    context = {'name':name}
     return render(request, 'test.html',context)
