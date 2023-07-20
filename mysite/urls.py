@@ -18,12 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+import debug_toolbar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('webapp1.urls')),
     path('blog/',include('blog.urls')),
     path('secondapp/',include('secondapp.urls')),
+    path('__debug__/',include('debug_toolbar.urls')),
+    path('summernote/',include('django_summernote.urls')),
   
 ]
 
